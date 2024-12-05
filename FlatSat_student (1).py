@@ -72,14 +72,18 @@ def take_photo():
     while True:
         accelx, accely, accelz = accel_gyro.acceleration
 
-        #CHECKS IF READINGS ARE ABOVE THRESHOLD
-            #PAUSE
-            #name = ""     #First Name, Last Initial  ex. MasonM
-            #TAKE PHOTO
-            #PUSH PHOTO TO GITHUB
-        
-        #PAUSE
+        if accel_gyro.acceleration > THRESHOLD: #CHECKS IF READINGS ARE ABOVE THRESHOLD
+            
+            time.sleep(1)                       #PAUSE
+            
+            picam2.start()
+            picam2.capture_file(image_path)  #name = ""     #First Name, Last Initial  ex. MasonM
+            picam2.stop()                       #TAKE PHOTO
+            print(f"Photo saved: {image_path}")
 
+            git_push()                        #PUSH PHOTO TO GITHUB
+
+            time.sleep(2)                      #PAUSE
 
 def main():
     take_photo()
