@@ -23,7 +23,7 @@ from picamera2 import Picamera2
 
 # VARIABLES
 THRESHOLD = 15      # Acceleration threshold for shaking
-REPO_PATH = "/home/GatorSAT/FlatSAT-Camera"     # Path to your GitHub repo
+REPO_PATH = "/home/tanya/GatorSAT/FlatSAT-Camera"     # Path to your GitHub repo
 FOLDER_PATH = "/Images"   # Path to image folder in your GitHub repo
 NAME = "MasonH"  # Your name for file naming
 
