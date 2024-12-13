@@ -38,7 +38,7 @@ picam2 = Picamera2()
 # Set up logging
 logging.basicConfig(filename='photos.log', level=logging.ERROR)
 
-def git_push():
+def git_push(picam2):
     """
     This function is complete. Stages, commits, and pushes new images to your GitHub repo.
     """
@@ -90,7 +90,7 @@ def take_photo():
 
 def main():
     try:
-        take_photo()
+        take_photo(picam2)
     except KeyboardInterrupt:
         print("Program interrupted. Exiting...")
 
