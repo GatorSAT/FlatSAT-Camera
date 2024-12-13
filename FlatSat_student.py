@@ -81,7 +81,7 @@ def take_photo():
                 print(f"Photo saved: {image_path}")
                 git_push()  # Push photo to GitHub
             except:
-            time.sleep(2)  # Pause after processing
+                time.sleep(2)  # Pause after processing
 
 def main():
     take_photo()
