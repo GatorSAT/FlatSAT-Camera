@@ -86,7 +86,7 @@ def take_photo():
 
 def main():
     try:
-    take_photo()
+        take_photo()
     except KeyboardInterrupt:
         print("Program interrupted. Exiting...")
 
