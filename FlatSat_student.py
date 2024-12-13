@@ -22,7 +22,7 @@ from git import Repo
 from picamera2 import Picamera2
 
 # VARIABLES
-THRESHOLD = 10
+THRESHOLD = 13
 REPO_PATH = "/home/tanya/GatorSAT/FlatSAT-Camera"  # Path to GitHub repo
 FOLDER_PATH = "/Images/"  # Path to image folder in GitHub repo
 NAME = "MasonH"  # Your name for file naming
@@ -74,12 +74,12 @@ def take_photo():
             image_path = img_gen(NAME)  # Generate image path
             
            # picam2.configure(picam2.create_still_configuration())
-            capture_config = picam2.create_still_configuration()
+           # capture_config = picam2.create_still_configuration()
             picam2.start()
             time.sleep(1)
             picam2.capture_image()
             print("Hello")
-            picam2.switch_mode_and_capture_file(capture_config, image_path)  # Capture the image
+           # picam2.switch_mode_and_capture_file(capture_config, image_path)  # Capture the image
             picam2.stop()
             print(f"Photo saved: {image_path}")
             git_push()  # Push photo to GitHub
