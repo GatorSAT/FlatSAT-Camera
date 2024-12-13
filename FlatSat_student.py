@@ -21,12 +21,12 @@ from adafruit_lsm6ds.lsm6dsox import LSM6DSOX as LSM6DS
 from adafruit_lis3mdl import LIS3MDL
 from git import Repo
 from picamera2 import Picamera2
-import logging
+
 
 # VARIABLES
 THRESHOLD = 15
 REPO_PATH = "/home/tanya/GatorSAT/FlatSAT-Camera"  # Path to GitHub repo
-FOLDER_PATH = "FlatSAT-Camera/Images"  # Path to image folder in GitHub repo
+FOLDER_PATH = "Images"  # Path to image folder in GitHub repo
 NAME = "MasonH"  # Your name for file naming
 
 # IMU and camera initialization
@@ -42,9 +42,9 @@ def git_push():
    
     try:
         repo = Repo(REPO_PATH)
+        repo.git.add(FOLDER_PATH)
         origin = repo.remote('origin')
         origin.pull()
-        repo.git.add(FOLDER_PATH)
         repo.index.commit('New Photo')
         origin.push()
         print('Pushed changes to GitHub.')
@@ -73,7 +73,7 @@ def take_photo():
             time.sleep(1)  # Pause
             image_path = img_gen(NAME)  # Generate image path
             
-            if NAME:
+            try:
                 picam2.configure(picam2.create_still_configuration())
                 picam2.start()
                 picam2.capture_file(image_path)  # Capture the image
