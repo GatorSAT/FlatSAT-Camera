@@ -64,6 +64,7 @@ def take_photo():
     """
     Takes a photo when the FlatSat is shaken.
     """
+    picam2 = Picamera2()
     while True:
         # Get accelerometer readings
         accel_x, accel_y, accel_z = accel_gyro.acceleration
