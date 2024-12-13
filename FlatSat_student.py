@@ -80,9 +80,6 @@ def take_photo():
                 picam2.stop()
                 print(f"Photo saved: {image_path}")
                 git_push()  # Push photo to GitHub
-            except Exception as e:
-                logging.error(f"Error taking photo: {e}")
-                print(f"Error taking photo: {e}")
 
             time.sleep(2)  # Pause after processing
 
