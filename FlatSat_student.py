@@ -24,7 +24,7 @@ from picamera2 import Picamera2
 # VARIABLES
 THRESHOLD = 13
 REPO_PATH = "/home/tanya/FlatSAT-Camera"  # Path to GitHub repo
-FOLDER_PATH = "/Images"  # Path to image folder in GitHub repo
+FOLDER_PATH = "Images"  # Path to image folder in GitHub repo
 NAME = "MasonH"  # Your name for file naming
 
 # IMU and camera initialization
@@ -38,54 +38,53 @@ def git_push():
     This function is complete. Stages, commits, and pushes new images to your GitHub repo.
     """
    
-    try:
-         repo = Repo(REPO_PATH)
-         origin = repo.remote('origin')
-         print('added remote')
-         origin.pull()
-         print('pulled changes')
-         repo.git.add(REPO_PATH + FOLDER_PATH)
-         repo.index.commit('New Photo')
-         print('made the commit')
-         origin.push()
-         print('pushed changes')
-    except:
-         print('Couldn\'t upload to git')
+   # try:
+    repo = Repo(REPO_PATH)
+    origin = repo.remote('origin')
+    print('added remote')
+    origin.pull()
+    print('pulled changes')
+    repo.git.add(REPO_PATH + FOLDER_PATH)
+    repo.index.commit('New Photo')
+    print('made the commit')
+    origin.push()
+    print('pushed changes')
+   # except:
+    #    print('Couldn\'t upload to git')
 
 def img_gen(name):
     """
     This function generates a new image name.
     """
     t = time.strftime("_%H%M%S")
-    imgname = f"{REPO_PATH}/{FOLDER_PATH}/{name}{t}.jpg"
+    imgname = (f'{REPO_PATH}/{FOLDER_PATH}/{name}{t}.jpg')
     return imgname
 
 def take_photo():
     """
     Takes a photo when the FlatSat is shaken.
     """
-    
     while True:
         # Get accelerometer readings
         accel_x, accel_y, accel_z = accel_gyro.acceleration
         total_accel = (accel_x**2 + accel_y**2 + accel_z**2)**0.5
-       
+        print("Hola")
         if total_accel > THRESHOLD:  # Check if acceleration exceeds the threshold
            # time.sleep(1)  # Pause
-          NAME = "MasonH"   
-          print =("Hola")
+            image_path = img_gen(NAME)  # Generate image path
+            
            # picam2.configure(picam2.create_still_configuration())
            # capture_config = picam2.create_still_configuration()
-          picam2.start()
-          time.sleep(1)
-          picam2.capture_image(img_gen(NAME))
-          print("Hello")
+            picam2.start()
+            time.sleep(1)
+            picam2.capture_image()
+            print("Hello")
            # picam2.switch_mode_and_capture_file(capture_config, image_path)  # Capture the image
-          picam2.stop()
-          print(f"Photo saved: {img_gen(NAME)}")
-          git_push()  # Push photo to GitHub
+            picam2.stop()
+            print(f"Photo saved: {image_path}")
+            git_push()  # Push photo to GitHub
             
-          time.sleep(2)  # Pause after processing
+        time.sleep(2)  # Pause after processing
 
 def main():
     try:
