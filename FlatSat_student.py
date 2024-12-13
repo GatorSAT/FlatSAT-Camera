@@ -81,7 +81,7 @@ def take_photo():
           picam2.capture_image(img_gen(NAME))
           print("Hello")
            # picam2.switch_mode_and_capture_file(capture_config, image_path)  # Capture the image
-            picam2.stop()
+          picam2.stop()
           print(f"Photo saved: {img_gen(NAME)}")
           git_push()  # Push photo to GitHub
             
