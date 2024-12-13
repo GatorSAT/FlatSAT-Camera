@@ -64,7 +64,7 @@ def take_photo():
     """
     Takes a photo when the FlatSat is shaken.
     """
-    picam2 = Picamera2()
+    
     while True:
         # Get accelerometer readings
         accel_x, accel_y, accel_z = accel_gyro.acceleration
@@ -72,18 +72,17 @@ def take_photo():
         print("Hola")
         if total_accel > THRESHOLD:  # Check if acceleration exceeds the threshold
            # time.sleep(1)  # Pause
-            image_path = img_gen(NAME)  # Generate image path
-            print(image_path)
+          NAME = "MasonH"   
         try:
-            picam2.configure(picam2.create_still_configuration())
-            capture_config = picam2.create_still_configuration()
+           # picam2.configure(picam2.create_still_configuration())
+           # capture_config = picam2.create_still_configuration()
             picam2.start()
             time.sleep(1)
-            picam2.capture_file(image_path)
+            picam2.capture_file(img_gen(NAME))
             print("Hello")
            # picam2.switch_mode_and_capture_file(capture_config, image_path)  # Capture the image
             picam2.stop()
-            print(f"Photo saved: {image_path}")
+            print(f"Photo saved: {img_gen(NAME)}")
             git_push()  # Push photo to GitHub
         except:    
             time.sleep(2)  # Pause after processing
