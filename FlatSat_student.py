@@ -26,7 +26,7 @@ import logging
 # VARIABLES
 THRESHOLD = 15
 REPO_PATH = "/home/tanya/GatorSAT/FlatSAT-Camera"  # Path to GitHub repo
-FOLDER_PATH = "Images"  # Path to image folder in GitHub repo
+FOLDER_PATH = "photos.log"  # Path to image folder in GitHub repo
 NAME = "MasonH"  # Your name for file naming
 
 # IMU and camera initialization
