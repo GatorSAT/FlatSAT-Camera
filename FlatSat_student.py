@@ -42,10 +42,10 @@ def git_push():
    
     try:
         repo = Repo(REPO_PATH)
-        repo.git.add(FOLDER_PATH)
         origin = repo.remote('origin')
         origin.pull()
         repo.index.commit('New Photo')
+        repo.git.add(FOLDER_PATH)
         origin.push()
         print('Pushed changes to GitHub.')
     except Exception as e:
