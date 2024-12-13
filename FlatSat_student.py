@@ -73,7 +73,7 @@ def take_photo():
             time.sleep(1)  # Pause
             image_path = img_gen(NAME)  # Generate image path
             
-            try:
+            if NAME:
                 picam2.configure(picam2.create_still_configuration())
                 picam2.start()
                 picam2.capture_file(image_path)  # Capture the image
