@@ -74,7 +74,7 @@ def take_photo():
            # time.sleep(1)  # Pause
             image_path = img_gen(NAME)  # Generate image path
             print(image_path)
-            
+        try:
             picam2.configure(picam2.create_still_configuration())
             capture_config = picam2.create_still_configuration()
             picam2.start()
@@ -85,8 +85,8 @@ def take_photo():
             picam2.stop()
             print(f"Photo saved: {image_path}")
             git_push()  # Push photo to GitHub
-            
-        time.sleep(2)  # Pause after processing
+        except:    
+            time.sleep(2)  # Pause after processing
 
 def main():
     try:
