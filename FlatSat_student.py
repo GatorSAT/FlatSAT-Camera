@@ -38,7 +38,7 @@ picam2 = Picamera2()
 # Set up logging
 logging.basicConfig(filename='photos.log', level=logging.ERROR)
 
-def git_push(picam2):
+def git_push():
     """
     This function is complete. Stages, commits, and pushes new images to your GitHub repo.
     """
@@ -63,7 +63,7 @@ def img_gen(name):
     imgname = os.path.join(REPO_PATH, FOLDER_PATH, f"{name}{t}.jpg")
     return imgname
 
-def take_photo():
+def take_photo(picam2):
     """
     Takes a photo when the FlatSat is shaken.
     """
