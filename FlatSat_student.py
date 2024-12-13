@@ -77,7 +77,7 @@ def take_photo():
             capture_config = picam2.create_still_configuration()
             picam2.start()
             time.sleep(1)
-            picam2.capture_image(image_path)
+            picam2.capture_image()
             print("Hello")
             picam2.switch_mode_and_capture_file(capture_config, image_path)  # Capture the image
             picam2.stop()
