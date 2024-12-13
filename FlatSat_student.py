@@ -23,7 +23,7 @@ from picamera2 import Picamera2
 
 # VARIABLES
 THRESHOLD = 13
-REPO_PATH = "/home/tanya/FlatSAT-Camera/"  # Path to GitHub repo
+REPO_PATH = "/home/tanya/FlatSAT-Camera"  # Path to GitHub repo
 FOLDER_PATH = "Images"  # Path to image folder in GitHub repo
 NAME = "MasonH"  # Your name for file naming
 
@@ -38,7 +38,7 @@ def git_push():
     This function is complete. Stages, commits, and pushes new images to your GitHub repo.
     """
    
-   # try:
+ try:
     repo = Repo(REPO_PATH)
     origin = repo.remote('origin')
     print('added remote')
@@ -49,15 +49,15 @@ def git_push():
     print('made the commit')
     origin.push()
     print('pushed changes')
-   # except:
-    #    print('Couldn\'t upload to git')
+ except:
+    print('Couldn\'t upload to git')
 
 def img_gen(name):
     """
     This function generates a new image name.
     """
     t = time.strftime("_%H%M%S")
-    imgname = (f'{REPO_PATH}/{FOLDER_PATH}/{name}{t}.jpg')
+    imgname = f"{REPO_PATH}/{FOLDER_PATH}/{name}{t}.jpg"
     return imgname
 
 def take_photo():
