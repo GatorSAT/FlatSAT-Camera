@@ -60,7 +60,7 @@ def img_gen(name):
     imgname = os.path.join(REPO_PATH, FOLDER_PATH, f"{name}{t}.jpg")
     return imgname
 
-def take_photo(picam2):
+def take_photo():
     """
     Takes a photo when the FlatSat is shaken.
     """
