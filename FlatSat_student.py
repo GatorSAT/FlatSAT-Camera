@@ -80,7 +80,7 @@ def take_photo():
                 picam2.stop()
                 print(f"Photo saved: {image_path}")
                 git_push()  # Push photo to GitHub
-
+            except:
             time.sleep(2)  # Pause after processing
 
 def main():
