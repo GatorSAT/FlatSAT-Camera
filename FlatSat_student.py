@@ -57,7 +57,7 @@ def img_gen(name):
     This function generates a new image name.
     """
     t = time.strftime("_%H%M%S")
-    imgname = (f'{REPO_PATH}/{FOLDER_PATH}/{name}{t}.jpg")
+    imgname = (f'{REPO_PATH}/{FOLDER_PATH}/{name}{t}.jpg')
     return imgname
 
 def take_photo():
