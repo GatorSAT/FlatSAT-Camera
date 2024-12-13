@@ -38,7 +38,7 @@ def git_push():
     This function is complete. Stages, commits, and pushes new images to your GitHub repo.
     """
    
-    try:
+   # try:
         repo = Repo(REPO_PATH)
         origin = repo.remote('origin')
         print('added remote')
@@ -49,8 +49,8 @@ def git_push():
         print('made the commit')
         origin.push()
         print('pushed changes')
-    except:
-        print('Couldn\'t upload to git')
+   # except:
+    #    print('Couldn\'t upload to git')
 
 def img_gen(name):
     """
