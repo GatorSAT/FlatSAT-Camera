@@ -14,14 +14,12 @@ You will need to complete the take_photo() function and configure the VARIABLES 
 # DATE: 12/4/2024
 
 # Import libraries
-import os
 import time
 import board
 from adafruit_lsm6ds.lsm6dsox import LSM6DSOX as LSM6DS
 from adafruit_lis3mdl import LIS3MDL
 from git import Repo
 from picamera2 import Picamera2
-import logging
 
 # VARIABLES
 THRESHOLD = 15
@@ -43,21 +41,23 @@ def git_push():
     try:
         repo = Repo(REPO_PATH)
         origin = repo.remote('origin')
+        print('added remote')
         origin.pull()
-        repo.git.add(FOLDER_PATH)
+        print('pulled changes')
+        repo.git.add(REPO_PATH + FOLDER_PATH)
         repo.index.commit('New Photo')
+        print('made the commit')
         origin.push()
-        print('Pushed changes to GitHub.')
-    except Exception as e:
-        logging.error(f"GitHub push failed: {e}")
-        print(f"Couldn't upload to GitHub: {e}")
+        print('pushed changes')
+    except:
+        print('Couldn\'t upload to git')
 
 def img_gen(name):
     """
     This function generates a new image name.
     """
     t = time.strftime("_%H%M%S")
-    imgname = os.path.join(REPO_PATH, FOLDER_PATH, f"{name}{t}.jpg")
+    imgname = (f'{REPO_PATH}/{FOLDER_PATH}/{name}{t}.jpg")
     return imgname
 
 def take_photo():
@@ -87,10 +87,7 @@ def take_photo():
             time.sleep(2)  # Pause after processing
 
 def main():
-    try:
-        take_photo()
-    except KeyboardInterrupt:
-        print("Program interrupted. Exiting...")
+    take_photo()
 
 if __name__ == '__main__':
     main()
