@@ -69,11 +69,11 @@ def take_photo():
         # Get accelerometer readings
         accel_x, accel_y, accel_z = accel_gyro.acceleration
         total_accel = (accel_x**2 + accel_y**2 + accel_z**2)**0.5
-        print("Hola")
+       
         if total_accel > THRESHOLD:  # Check if acceleration exceeds the threshold
            # time.sleep(1)  # Pause
           NAME = "MasonH"   
-    
+          print =("Hola")
            # picam2.configure(picam2.create_still_configuration())
            # capture_config = picam2.create_still_configuration()
           picam2.start()
