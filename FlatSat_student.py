@@ -26,7 +26,7 @@ import logging
 # VARIABLES
 THRESHOLD = 15
 REPO_PATH = "/home/tanya/GatorSAT/FlatSAT-Camera"  # Path to GitHub repo
-FOLDER_PATH = "/Images/photos.log"  # Path to image folder in GitHub repo
+FOLDER_PATH = "FlatSAT-Camera/Images"  # Path to image folder in GitHub repo
 NAME = "MasonH"  # Your name for file naming
 
 # IMU and camera initialization
@@ -35,14 +35,11 @@ accel_gyro = LSM6DS(i2c)
 mag = LIS3MDL(i2c)
 picam2 = Picamera2()
 
-# Set up logging
-logging.basicConfig(filename='photos.log', level=logging.ERROR)
-
 def git_push():
     """
     This function is complete. Stages, commits, and pushes new images to your GitHub repo.
     """
-    picam2 = Picamera2()
+   
     try:
         repo = Repo(REPO_PATH)
         origin = repo.remote('origin')
@@ -91,7 +88,7 @@ def take_photo(picam2):
 
 def main():
     try:
-        take_photo(picam2)
+        take_photo()
     except KeyboardInterrupt:
         print("Program interrupted. Exiting...")
 
