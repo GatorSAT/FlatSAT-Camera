@@ -81,10 +81,13 @@ def take_photo():
                 print(f"Photo saved: {image_path}")
                 git_push()  # Push photo to GitHub
             
-            time.sleep(2)  # Pause after processing
+            except:
+                time.sleep(2)  # Pause after processing
 
 def main():
     take_photo()
+    except KeyboardInterrupt:
+        print("Program interrupted. Exiting...")
 
 if __name__ == '__main__':
     main()
