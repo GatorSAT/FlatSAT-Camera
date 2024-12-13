@@ -85,6 +85,7 @@ def take_photo():
                 time.sleep(2)  # Pause after processing
 
 def main():
+    try:
     take_photo()
     except KeyboardInterrupt:
         print("Program interrupted. Exiting...")
