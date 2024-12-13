@@ -42,6 +42,7 @@ def git_push(picam2):
     """
     This function is complete. Stages, commits, and pushes new images to your GitHub repo.
     """
+    picam2 = Picamera2()
     try:
         repo = Repo(REPO_PATH)
         origin = repo.remote('origin')
