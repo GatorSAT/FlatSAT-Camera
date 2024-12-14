@@ -75,7 +75,7 @@ def take_photo():
             
             picam2.start()
             time.sleep(1)
-            sucess, image = picam2.capture_image()
+            success, image = picam2.capture_image()
             print("Hello")
             picam2.stop()
             if success == True:     
