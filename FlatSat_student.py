@@ -72,7 +72,10 @@ def take_photo():
         if total_accel > THRESHOLD:  # Check if acceleration exceeds the threshold
            # time.sleep(1)  # Pause
             image_path = img_gen(NAME)  # Generate image path
-            
+
+
+           # picam2.configure(picam2.create_still_configuration())
+           # capture_config = picam2.create_still_configuration()
             picam2.start()
             time.sleep(1)
             success, image = picam2.capture_image()
