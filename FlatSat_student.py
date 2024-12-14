@@ -23,8 +23,8 @@ from picamera2 import Picamera2
 
 # VARIABLES
 THRESHOLD = 13
-REPO_PATH = "/home/tanya/FlatSAT-Camera/"  # Path to GitHub repo
-FOLDER_PATH = "/Pictures"  # Path to image folder in GitHub repo
+REPO_PATH = "/home/tanya/FlatSAT-Camera"  # Path to GitHub repo
+FOLDER_PATH = "Pictures"  # Path to image folder in GitHub repo
 NAME = "MasonH"  # Your name for file naming
 
 # IMU and camera initialization
