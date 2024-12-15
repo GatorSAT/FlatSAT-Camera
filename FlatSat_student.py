@@ -22,7 +22,7 @@ from git import Repo
 from picamera2 import Picamera2
 
 # VARIABLES
-THRESHOLD = 13
+THRESHOLD = 12
 REPO_PATH = "/home/tanya/FlatSAT-Camera"  # Path to GitHub repo
 FOLDER_PATH = "Pictures"  # Path to image folder in GitHub repo
 NAME = "MasonH"  # Your name for file naming
@@ -68,9 +68,9 @@ def take_photo():
         # Get accelerometer readings
         accel_x, accel_y, accel_z = accel_gyro.acceleration
         total_accel = (accel_x**2 + accel_y**2 + accel_z**2)**0.5
-        print("Hola")
         if total_accel > THRESHOLD:  # Check if acceleration exceeds the threshold
             #time.sleep(1)  # Pause
+            print("Hello")
             image_path = img_gen(NAME)  # Generate image path
 
 
